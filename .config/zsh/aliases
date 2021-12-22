@@ -1,0 +1,51 @@
+#!/bin/sh
+ 
+# Always use neovim
+alias vim="nvim" vimdiff="nvim -d"
+ 
+# Dotfiles repo control
+alias dotfiles="git --git-dir=$HOME/.config/dotfiles.git/ --work-tree=$HOME"
+ 
+# SSH shortcuts
+alias                  \
+  vault="ssh vault"    \
+  vaultd="ssh vaultd"  \
+  sshS="ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -c aes192-cbc -i ~/.ssh/looch-switch -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
+  sshC="ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -c aes192-ctr -i ~/.ssh/looch-switch -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
+  sshM="ssh -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
+ 
+# Verbosity and interactivity settings
+alias                \
+  cp="cp -iv"        \
+  mv="mv -iv"        \
+  rm="rm -v"         \
+  ln="ln -v"         \
+  mkd="mkdir -pv"    \
+  rsync="rsync -hP"  \
+ 
+# Colorize commands when possible
+alias                                 \
+  ls="ls -hG"                         \
+  ll="ls -lAhG"                       \
+  grep="grep --color=auto"            \
+  ccat="highlight --out-format=ansi"  \
+ 
+# Common commands abbreviation
+alias                               \
+  e="$EDITOR"                       \
+  E="sudo $EDITOR"                  \
+  s="sudo su -l"                    \
+  q="exit"                          \
+  ka="killall"                      \
+  h="history -i -100000 | less +G"  \
+  hs="history -i -100000 | grep"    \
+ 
+# For `pass`
+alias                                        \
+  ppull="pass git pull"                      \
+  ppush="pass git push"                      \
+  psync="pass git fetch && pass git status"  \
+  padd="pass insert -m"                      \
+  pedit="pass edit"                          \
+  pwg="pwgen -cns"                           \
+  pw="pwgen -cns 16 1"                       \
