@@ -54,6 +54,13 @@ map <esc> reload
 map zi dirinfo
 map zp set preview!
 
+map gt cd ~/.cache/tmp
+map gc cd ~/.config
+map gd cd ~/Desktop
+map gi cd ~/Documents/git
+map gl cd ~/Downloads
+map gn cd ~/Nextcloud
+
 map m
 map md mkdir
 map mf mkfile
