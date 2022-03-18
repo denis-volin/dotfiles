@@ -11,8 +11,7 @@ alias                  \
   vault="ssh vault"    \
   vaultd="ssh vaultd"  \
   sshS="ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -c aes192-cbc -i ~/.ssh/looch-switch -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
-  sshC="ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -c aes192-ctr -i ~/.ssh/looch-switch -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
-  sshM="ssh -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
+  sshP="ssh -i ~/.ssh/planeta" \
  
 # Verbosity and interactivity settings
 alias                \
@@ -48,4 +47,4 @@ alias                                        \
   padd="pass insert -m"                      \
   pedit="pass edit"                          \
   pwg="pwgen -cns"                           \
-  pw="pwgen -cns 16 1"                       \
+  pw="pwgen -cns 20 1"                       \
