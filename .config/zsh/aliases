@@ -7,11 +7,9 @@ alias vim="nvim" vimdiff="nvim -d"
 alias dotfiles="git --git-dir=$HOME/.config/dotfiles.git/ --work-tree=$HOME"
  
 # SSH shortcuts
-alias                  \
-  vault="ssh vault"    \
-  vaultd="ssh vaultd"  \
-  sshS="ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-dss -c aes192-cbc -i ~/.ssh/looch-switch -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
-  sshP="ssh -i ~/.ssh/planeta" \
+alias \
+  sshN="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+  scpN="scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
  
 # Verbosity and interactivity settings
 alias                \
@@ -48,3 +46,7 @@ alias                                        \
   pedit="pass edit"                          \
   pwg="pwgen -cns"                           \
   pw="pwgen -cns 20 1"                       \
+  dw="diceware --no-caps -d -"               \
+
+# Pbcopy without newline character
+alias pbcopyn="tr -d '\n' | pbcopy"
