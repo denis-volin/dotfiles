@@ -1,0 +1,103 @@
+# ========================
+# Settings
+# ========================
+set incsearch
+set hidden
+
+# Shell
+set shell zsh
+set shellopts '-eu:--shwordsplit'
+set ifs "\n"
+
+# ========================
+# Functions
+# ========================
+
+# mkdir
+cmd mkdir %{{
+  printf " mkdir "
+  read -r dir
+  [ -z "$dir" ] && exit 0
+  mkdir -pv -- "$dir"
+}}
+
+# create file + open in editor
+cmd mkfile ${{
+  printf " $EDITOR "
+  read -r file
+  [ -z "$file" ] && exit 0
+  "$EDITOR" -- "$file"
+}}
+
+# chmod (multi-select safe-ish)
+cmd chmod %{{
+  printf " chmod "
+  read -r bits
+  [ -z "$bits" ] && exit 0
+
+  set -f  # disable globbing
+  IFS='
+'
+  for file in $fx; do
+    chmod "$bits" -- "$file"
+  done
+  unset IFS
+}}
+
+# chown
+cmd chown %{{
+  printf " chown "
+  read -r own
+  [ -z "$own" ] && exit 0
+
+  set -f
+  IFS='
+'
+  for file in $fx; do
+    chown "$own" -- "$file"
+  done
+  unset IFS
+}}
+
+# directory info (fast + safe)
+cmd dirinfo %{{
+  size=$(du -sh -- "$f" 2>/dev/null | cut -f1)
+  count=$(find -- "$f" -maxdepth 1 2>/dev/null | wc -l)
+  printf "Size: %s | Entries: %s\n" "$size" "$count"
+}}
+
+# ========================
+# Navigation
+# ========================
+
+map gr cd /
+map gd cd /dev
+map ge cd /etc
+map gm cd /mnt
+map gs cd /srv
+map gt cd /tmp
+map gu cd /usr
+map gv cd /var
+map go cd /opt
+map gl cd /var/log
+map gh cd ~
+
+# ========================
+# Actions
+# ========================
+
+map D delete
+map <esc> reload
+
+map zi dirinfo
+map zp set preview!
+
+# ========================
+# Creation & permissions
+# ========================
+
+map m
+map md mkdir
+map mf mkfile
+map mm chmod
+map mo chown
