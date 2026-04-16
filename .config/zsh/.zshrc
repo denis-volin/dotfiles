@@ -55,6 +55,18 @@ function source_fzf() {
 }
 zvm_after_init_commands+=(source_fzf)
 
+# Search history by current command prefix with CTRL+J / CTRL+K
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+function setup_history_search_keybindings() {
+  zle -N up-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey -M vicmd '^K' up-line-or-beginning-search
+  bindkey -M viins '^K' up-line-or-beginning-search
+  bindkey -M vicmd '^J' down-line-or-beginning-search
+  bindkey -M viins '^J' down-line-or-beginning-search
+}
+zvm_after_init_commands+=(setup_history_search_keybindings)
+
 
 
 # --- Completion settings ---
@@ -67,6 +79,8 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 # Include dotfiles in completion
 setopt GLOB_DOTS
 source "$XDG_DATA_HOME/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
+
+
 
 # --- Syntax highlighting ---
 source "$XDG_DATA_HOME/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
