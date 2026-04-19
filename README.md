@@ -4,6 +4,14 @@ A few simple config files for tools that I use on a servers.
 
 ## Setup
 
+Automatic:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/denis-volin/dotfiles/main/setup.sh | sh
+```
+
+Manual:
+
 ```sh
 # Install requirements
 

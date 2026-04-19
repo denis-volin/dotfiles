@@ -25,9 +25,9 @@ bindkey -s '^o' 'lfcd\r'
 # Different promt for root and non-root user
 # Cool site for this: https://zsh-prompt-generator.site/
 if [[ $EUID -ne 0 ]]; then
-  PROMPT="%F{green}[%f%F{green}%n%f%F{yellow}@%f%F{cyan}%M%f %F{magenta}%d%f%F{green}]%f$ "
+  PROMPT="%F{green}[%f%F{green}%n%f%F{yellow}@%f%F{cyan}%M%f %F{magenta}%~%f%F{green}]%f$ "
 else
-  PROMPT="%F{red}[%f%F{red}%n%f%F{yellow}@%f%F{cyan}%M%f %F{magenta}%d%f%F{red}]%f# "
+  PROMPT="%F{red}[%f%F{red}%n%f%F{yellow}@%f%F{cyan}%M%f %F{magenta}%~%f%F{red}]%f# "
 fi
 
 # Show non-zero exit code of the last command
