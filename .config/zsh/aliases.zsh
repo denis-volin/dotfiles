@@ -28,6 +28,4 @@ alias                               \
   nlr="nft list ruleset"            \
 
 # Dotfiles repo control
-alias \
-  dot="git --git-dir=$HOME/.config/dotfiles.git/ --work-tree=$HOME" \
-  dotg="lazygit --git-dir=$HOME/.config/dotfiles.git/ --work-tree=$HOME"
+alias dot="git --git-dir=$HOME/.local/share/dotfiles.git/ --work-tree=$HOME"
