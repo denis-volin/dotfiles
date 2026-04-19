@@ -24,7 +24,7 @@ alias                               \
   j="journalctl"                    \
   d="docker"                        \
   dc="docker compose"               \
-  ports="ss -tulpen"                \
+  ports="ss -tulpn"                 \
   nlr="nft list ruleset"            \
 
 # Dotfiles repo control
