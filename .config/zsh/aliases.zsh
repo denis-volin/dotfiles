@@ -17,8 +17,8 @@ alias                                                   \
 # Common commands abbreviation
 alias                               \
   e="$EDITOR"                       \
-  h="history | less +G"             \
-  hs="history | grep"               \
+  h="history 0 | less +G"           \
+  hs="history 0 | grep"             \
   t="tmux -CC attach || tmux -CC"   \
   s="systemctl"                     \
   j="journalctl"                    \
