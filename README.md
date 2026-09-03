@@ -1,21 +1,29 @@
 # Dotfiles
 
-A few simple config files for tools that I use on a servers.
+A few simple config files for tools that I use on servers.
 
 ## Setup
 
-Automatic:
+### Automatic
+
+With a script:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/denis-volin/dotfiles/main/setup.sh | sh
 ```
 
-Manual:
+Or with an Ansible Playbook:
+
+```sh
+ansible-playbook -i inventory.yml playbook.yml
+```
+
+### Manual
 
 ```sh
 # Install requirements
 
-apt install zsh neovim fzf git
+apt install git tar zsh neovim fzf
 
 git clone https://github.com/Aloxaf/fzf-tab ~/.local/share/zsh/plugins/fzf-tab
 git clone https://github.com/jeffreytse/zsh-vi-mode ~/.local/share/zsh/plugins/zsh-vi-mode
