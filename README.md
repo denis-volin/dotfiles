@@ -12,11 +12,7 @@ With a script:
 curl -fsSL https://raw.githubusercontent.com/denis-volin/dotfiles/main/setup.sh | sh
 ```
 
-Or with an Ansible Playbook:
-
-```sh
-ansible-playbook -i inventory.yml playbook.yml
-```
+Or with an Ansible Role: [denis-volin.dotfiles](https://galaxy.ansible.com/ui/standalone/roles/denis-volin/dotfiles/)
 
 ### Manual
 
